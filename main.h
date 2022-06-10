@@ -29,7 +29,7 @@ int execute(char **line_args);
 void uninteract(void);
 
 /*findpath.c*/
-char *findpath(char **env)
+char *findpath(char **env);
 
 /*function.strings.c*/
 int _strncmp(char *a, char *b, size_t n);
