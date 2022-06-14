@@ -26,12 +26,14 @@ char **tokenizer(char *x);
 int count(char *x);
 
 int execute(char **line_args);
+
+/*uninteract.c*/
 void uninteract(void);
 
 /*findpath.c*/
 char *findpath(char **env);
 
-/*function.strings.c*/
+/*func_strings.c*/
 int _strncmp(char *a, char *b, size_t n);
 int _strlen(char *s);
 char *_strcpy(char *back, char *src);
@@ -42,7 +44,7 @@ char *_strdup(char *src);
 char *concat_path_with_line(char *args, char *y);
 int _concat(char *path, char *y);
 
-/*builtins.c*/
+/*builtin.c*/
 int builtin(char **arg, char *buf);
 int execute_env(char **arg, char *buf);
 int exitt(char **arg, char *buf);
