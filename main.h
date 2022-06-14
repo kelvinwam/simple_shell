@@ -18,13 +18,14 @@ extern char **environ;
 /*shell.c*/
 int simple(void);
 
-/*get_line.c*/
+/*line.c*/
 char *line(char *x, size_t size);
 
 /*tokenizer.c*/
 char **tokenizer(char *x);
 int count(char *x);
 
+/*exec.c*/
 int execute(char **line_args);
 
 /*uninteract.c*/
