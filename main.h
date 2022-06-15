@@ -23,8 +23,11 @@ int simple(void);
 char *line(char *x, size_t size);
 
 /*tokenizer.c*/
-char **tokenizer(char *x);
-int count(char *x);
+int tokenize(char *deb);
+int compareExit(char *str1, char *str2);
+int compareEnv(char *str1, char *str2);
+char **identify_string(char *parameter);
+void controlc(int sig);
 
 /*exec.c*/
 void execute(char **deb);
@@ -33,7 +36,7 @@ void execute(char **deb);
 void uninteract(void);
 
 /*findpath.c*/
-char *findpath(char **env);
+char *find_cmd(char **cmd);
 
 /*func_strings.c*/
 int _strncmp(char *a, char *b, size_t n);
@@ -43,8 +46,10 @@ int _strcmp(char *a, char *b);
 char *_strdup(char *src);
 
 /*concat.c*/
-char *concat_path_with_line(char *args, char *y);
-int _concat(char *path, char *y);
+int _strcmpdir(char *str1, char *str2);
+int charput(char c);
+int _strlen(char *str);
+char *concat(char *str1, char *str2);
 
 /*builtin.c*/
 int builtin(char **arg, char *buf);
