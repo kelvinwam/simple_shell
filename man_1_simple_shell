@@ -1,0 +1,54 @@
+.TH man 1 SIMPLE_SHELL "15 June 2022"  "Simple_Shell"
+
+.SH NAME
+-Simple_Shell - command interpreter
+
+.SH
+ SYNOPSIS
+.B ./hsh [options] [file]
+
+.SH
+ DESCRIPTION
+ SIMPLE_SHELL
+- It is a call to the system to execute what it contains on the command line.
+- This is a simple shell using the language C for interacting with linux 
+  operating system.
+
+.SH 
+Return
+If successful 0 and if not -1.
+
+.SH
+ OPTIONS
+Commands Used:
+- CRTL+SHIFT+V
+- clear
+- cd
+- ls
+- pwd
+- mkdir
+- rm
+- touch
+- locate
+- find
+- sudo
+
+.SH EXAMPLE
+
+$ ls -l
+-rw-r--r-- 1 root root  934 Jun 10 01:53 builtin.c
+-rw-r--r-- 1 root root 1231 Jun 15 13:24 concat.c
+-rw-r--r-- 1 root root  621 Jun 15 13:01 exec.c
+-rw-r--r-- 1 root root  715 Jun 15 13:41 find_path.c
+-rw-r--r-- 1 root root 1258 Jun 10 02:16 func_strings.c
+-rw-r--r-- 1 root root  374 Jun 15 07:34 line.c
+-rw-r--r-- 1 root root  979 Jun 15 13:02 main.h
+-rw-r--r-- 1 root root   42 Jun  3 14:05 README.md
+-rw-r--r-- 1 root root  207 Jun 15 13:26 shell.c
+-rw-r--r-- 1 root root 1372 Jun 15 13:47 tokenizer.c
+-rw-r--r-- 1 root root  495 Jun 10 03:51 uninteract.c
+
+
+
+.SH AUTHOR
+Written by Kelvin Mwanzia and Sammy Okorie.
