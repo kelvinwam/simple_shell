@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stddef.h>
 
 /**
  * line - the line objects
@@ -9,7 +10,7 @@
 
 char *line(char *x, size_t size)
 {
-ssize_t line = getline(&x, &size, stdin);
+size_t line = line(&x, &size, stdin);
 if (line == EOF)
 {
 free(x);

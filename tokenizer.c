@@ -1,10 +1,12 @@
 #include "main.h"
+#include <stddef.h>
 
 /**
  * tokenize - function
  * @x: Pointer.
  * Return: pointer char.
  */
+
 char **tokenize(char *x)
 {
 char **t = NULL;
