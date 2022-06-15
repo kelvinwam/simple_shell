@@ -1,5 +1,5 @@
-#ifndef _MAIN_H_
 #define _MAIN_H_
+#ifndef _MAIN_H_
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -11,6 +11,7 @@
 #include <signal.h>
 #include <fcntl.h>
 #include <errno.h>
+#include <stdef.h>
 
 /*global environment*/
 extern char **environ;
