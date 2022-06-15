@@ -84,7 +84,7 @@ if (str2 == NULL)
 str2 = "";
 len1 = _strlen(str1);
 len2 = _strlen(str2);
-a = malloc(((len1) + (len2) + 1) * sizeof(char));
+a = malloc(((len1) +(len2) +1) * sizeof(char));
 if (a == NULL)
 return (NULL);
 for (j = 0; j < len1; j++)

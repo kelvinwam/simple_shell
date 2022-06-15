@@ -13,7 +13,7 @@ char *builtins_str[] = {
 "env",
 "exit"
 };
-int (*builtins_func[])(char **, char *) = {& execute_env,& exit};
+int (*builtins_func[])(char **, char *) = {&execute_env, &exit};
 if (arg[0] == NULL)
 return (-1);
 while (i < 2)
