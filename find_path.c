@@ -1,30 +1,44 @@
 #include "main.h"
 
-/*
- * findpath - find path of environment
- * @env: environment
- * Return: string path
- */
-char *findpath(char **env)
+/**
+ * find_cmd - path.
+ * @cmd: first position.
+ * Return: string.
+ **/
+
+char *find_cmd(char *cmd)
 {
-char *y;
-int i;
-int t = 0;
-for (i = 0; env[i] != NULL; i++)
+DIR *folder;
+struct dirent *entry;
+char *deb, comp, **str  = malloc(sizeof(char) * 1024);
+char **split = malloc(sizeof(char) * 1024);
+int x;
+while (*environ != NULL)
 {
-if (env[i][0] == 'P' && env[i][1] == 'A'
-&& env[i][2] == 'T' && env[i][3] == 'H')
+if (!(_strcmpdir(*environ, "PATH")))
 {
-t = i;
-break;
+*str = *environ;
+for (x = 0; x < 9; x++, split++, str++)
+{
+*split = strtok(*str, ":='PATH'");
+folder = opendir(*split);
+if (folder == NULL)
+{
+perror("Unable to read directory");
 }
-else
-continue;
-}
-if (t)
+while ((entry = readdir(folder)))
 {
-y = _strdup(env[t]);
-return (y);
+deb = entry->d_name;
+comp = _strcmpdir(deb, cmd);
+if (comp == 0)
+{
+return (*split);
 }
-return (NULL);
+if (deb == NULL)
+{
+perror("Error");
+}}}}
+environ++;
+}
+return ("Error: Not Found");
 }

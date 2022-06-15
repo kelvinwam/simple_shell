@@ -1,67 +1,97 @@
 #include "main.h"
-#include <stddef.h>
 
 /**
- * tokenize - function
- * @x: Pointer.
- * Return: pointer char.
+ * tokenize - tokenize.
+ * @deb: string1
+ * Return: 1 if success, 0 if fail.
  */
 
-char **tokenize(char *x)
+int tokenize(char *deb)
 {
-char **t = NULL;
-char *aux = NULL;
-int i, j;
-j = count(x);
-t = x(sizeof(char *) * (j + 1));
-if (t == NULL)
+int cont = 0;
+while (deb[cont])
 {
-return (NULL);
+if (deb[0] == '/')
+{
+printf("%c\n", deb[0]);
+return (1);
 }
-aux = strtok(x, " \t\n");
-for (i = 0; aux != NULL; i++)
-{
-t[i] = aux;
-aux = strtok(NULL, " \t\n");
+cont++;
 }
-t[i] = NULL;
-return (t);
+return (0);
 }
 
 /**
- * count - counter words
- * @x: Pointer of line arguments
- * Return: int.
+ * compareExit - identifies if first char is a slash.
+ * @str1: first string
+ * @str2: exit string
+ * Return: 1 if yes 0 if no.
  */
 
-int count(char *x)
+int compareExit(char *str1, char *str2)
 {
-int i = 0;
-int count = 0;
-char *cp = x;
+int x = 0;
+for (; (*str2 != '\0' && *str1 != '\0') && *str1 == *str2; str1++)
+{
+if (x == 3)
+break;
+x++;
+str2++;
+}
+return (*str1 - *str2);
+}
 
-if (x != '\0')
+/**
+ * compareEnv - identifies if first char is a slash.
+ * @str1: first string
+ * @str2: exit string
+ * Return: 1 if yes 0 if no.
+ */
+
+int compareEnv(char *str1, char *str2)
 {
-while (x[i] != '\0')
+int x = 0;
+for (; (*str2 != '\0' && *str1 != '\0') && *str1 == *str2; str1++)
 {
-if ((x[i] == ' ') || (x[i] == '\n') || (x[i] == '\t'))
+if (x == 2)
+break;
+x++;
+str2++;
+}
+return (*str1 - *str2);
+}
+
+/**
+ * identify_string - input.
+ * @parameter: prompt
+ * Return: string
+ **/
+
+char **identify_string(char *parameter)
 {
-if ((x[i - 1] != ' ') && (cp[0] != x[i]))
+char **buf = malloc(1024 * sizeof(char *));
+char *split;
+int x = 0;
+char *delim = " \t\n";
+split = strtok(parameter, delim);
+while (split != NULL)
 {
-count++;
+buf[x] = split;
+x++;
+split = strtok(NULL, delim);
 }
-if ((x[i - 1] != '\n') && (cp[0] != x[i]))
+execute_proc(buf);
+return (buf);
+}
+
+/**
+ * controlC - close the shell
+ * @sig: keep using shell
+ **/
+
+void  controlC(int sig)
 {
-count++;
-}
-if ((x[i - 1] != '\t') && (cp[0] != x[i]))
-{
-count++;
-}
-}
-i++;
-}
-}
-return (count);
+(void) sig;
+write(1, "\n$ ", 3);
 }
 

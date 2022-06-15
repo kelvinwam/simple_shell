@@ -27,7 +27,7 @@ char **tokenizer(char *x);
 int count(char *x);
 
 /*exec.c*/
-int execute(char **line_args);
+void execute(char **deb);
 
 /*uninteract.c*/
 void uninteract(void);
